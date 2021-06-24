@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<title>计时器</title> 
+<style>
+    div{
+        color: rgb(193, 204, 255);
+    }
+    #a{font-size: 30px;
+      text-align: center;
+      border: none;
+      color: rgb(193, 204, 255);
+
+    }
+    .b{
+      width: 50px;  
+      height: 30px;
+    }
+</style>
+</head> 
+<body> 
+ <form action="somepage.asp"> 
+  
+ <input type="button" value="开始" name="btnStart"/ class="b"> 
+ <input type="button" value="停止" name="btnReset"/ class="b"> <br>
+ <div>Time passed:<input type="text" value="0" name="txt1" id="a" ></div>
+ 
+</body> 
+</html> 
+<script language="JavaScript" type="text/javascript"> 
+ 
+
+var txt=document.forms[0].elements["txt1"]; 
+var btnStart=document.forms[0].elements["btnStart"]; 
+var btnReset=document.forms[0].elements["btnReset"] 
+
+var id; 
+ 
+var seed=0; 
+btnStart.onclick=function(){ 
+  
+ if(this.value=="开始"){ 
+  
+ this.value="停止"; 
+
+ btnReset.disabled=true; 
+ 
+ id=window.setInterval(tip,10); 
+ }else{ 
+
+ this.value="开始"; 
+ 
+ btnReset.disabled=false; 
+ 
+ window.clearInterval(id); 
+ } 
+} 
+ 
+ 
+function tip(){ 
+ seed++; 
+ txt.value=seed; 
+} 
+
+</script>
+</html>
