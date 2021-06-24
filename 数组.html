@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+        div{
+            font-size: 30px;
+        }
+        button{
+            width: 50px;
+            height: 30px;
+        }
+    </style>
+    </head>
+    <body>
+        <b>1</b>
+        <div id="demo"></div>
+<button onclick="myFunction()">Click</button><br>
+        
+<script>
+function myFunction(){
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.unshift("Lemon","Pineapple");
+    fruits.sort();
+    fruits.reverse();
+	var x=document.getElementById("demo");
+	x.innerHTML=fruits;
+
+
+ 
+}
+</script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>数组2</title>
+        <style>
+            div{
+                font-size: 30px;
+            }
+            button{
+            width: 50px;
+            height: 30px;}
+        </style>
+    </head>
+    <body>
+        <b>2</b>
+        <div id="figure"></div>
+        <button onclick="myFunction()">Click</button><br>
+    <script>
+    function myFunction(){
+    var points=[40,100,1,5,25,10];
+    points.sort(function(a,b){return a-b});
+    var x=document.getElementById("figure");
+    x.innerHTML=points;
+   }
+    </script>
+    </body>
+    </html>
