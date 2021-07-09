@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <style>
+           body{
+               padding: 0px;
+               margin: 0px;
+               background-image: url(6.jpg);
+               background-size: 100%;
+               background-repeat: no-repeat;
+               background-attachment: fixed;
+           }
+           #mask{
+               background-color: rgba(0, 0,0,0.99);
+               left: 0px;
+               top: 0px;
+               width: 3000px;
+               height: 100vh;
+               position: fixed;
+           }
+           #lamp{
+               position: fixed;
+               top: 0px;
+               left: 0px;
+               width: 200px;
+               height: 200px;
+               border-radius: 50%;
+               border-style: solid;
+               border-color: white;
+               background:inherit;
+
+           }
+       </style>
+    </head>
+    <body>
+        <div id=mask></div>
+        <div id="lamp" style="top: 0px;"></div>
+        <script>
+            document.body.onmousemove=function(event){
+               var x= event.pageX-150;
+               var y=event.pageY-150;
+               document.getElementById("lamp").style.left=x+'px';
+               document.getElementById("lamp").style.top=y+'px';
+
+            }
+        </script>
+    </body>
+</html>
