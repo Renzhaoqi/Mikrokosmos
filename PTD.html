@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>PTD</title>
+    <style>
+        body{
+            background-color:rgb(255, 127, 80);
+            width: auto;
+            height: auto;
+            margin: 0;
+        }
+        #video{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: auto;
+            z-index: -100;
+        }
+        .begin{
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: transparent;
+            border-color: white;
+            border-radius: 25%;
+        }
+        #again{
+            position: absolute;
+            top: 10px;
+            left: 150px;
+            font-size: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: transparent;
+            border-color: white;
+            border-radius: 25%;
+        }
+        .image{
+            position: absolute;
+            top: 150px;
+            left: 440px;
+            width: 30%;
+            height: 55%;
+        }
+        #img1{
+            opacity: 1;
+        }
+        #img2{
+            opacity: 0;
+        }
+        #img3{
+            opacity: 0;
+
+        }
+        #img4{
+            opacity: 0;
+        }
+        #time{
+            position: absolute;
+            top: 50px;
+            right: 100px;
+            font-size: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border: dotted 2px black;
+            border-radius: 25%;
+        }
+        #score{
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            opacity: 0;
+            font-size: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border: dotted 2px black;
+            border-radius: 25%;
+        }
+        #list{
+            position: absolute;
+            top: 30px;
+            left: 530px;}
+        .choice{
+            font-size: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: transparent;
+            border-color: white;
+            border-radius: 25%;
+        }
+        .button{
+            font-size: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: transparent;
+            border-color: white;
+            border-radius: 25%;
+        }
+        #left{
+            position: absolute;
+            top: 300px;
+            left: 80px;
+            opacity: 0;
+        }
+        #right{
+            position: absolute;
+            top: 300px;
+            right: 100px;
+            opacity: 0;
+        }
+        #space{
+            position: absolute;
+            top: 520px;
+            left: 550px;
+            opacity: 0;
+        }
+        p{
+            color: rgb(224, 224, 224);
+            position: absolute;
+            right: 5px;
+            bottom:0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+    <video src="video/烟花.mp4" id="video"></video>
+    <a href="https://renzhaoqi.github.io/Mikrokosmos/Permission To Dance.html"><input type="button" value="◀◀Return" class="begin"></a>
+    <a href="https://renzhaoqi.github.io/Mikrokosmos/PTD.html"><input type="button" value="Again  ▶▶" id="again"></a>
+    <ul id="list">
+    <li><input type="button" value="Permission to Dance" class="choice"><audio src="video/BTS (防弹少年团) - Permission to Dance.mp3" class="music"></audio></li>
+    <li><input type="button" value="Dynamite" class="choice"><audio src="video/BTS-Dynamite.mp3" class="music"></audio></li>
+    <li><input type="button" value="Love Scenario" class="choice"><audio src="video/IKON.mp3" class="music"></audio></li>
+    </ul>
+    <div id="time"></div>
+    <div id="score"></div>
+    <input type="button" value="<<<" id="left" class="button">
+    <img src="image/d1.png" alt="dance" class="image" id="img1">
+    <img src="image/d2.png" alt="dance" class="image" id="img2">
+    <img src="image/d3.png" alt="dance" class="image" id="img3">
+    <img src="image/d4.png" alt="dance" class="image" id="img4">
+    <input type="button" value=">>>" id="right" class="button"><br>
+    <input type="button" value="  space  " id="space" class="button">
+    </div>
+    <p>跳舞人物非原创</p>
+    <script>
+        var oVideo=document.getElementById("video");
+        var oImg=document.getElementsByClassName("image");
+        var oMusic=document.getElementsByClassName("music");
+        var oList=document.getElementById("list");
+        var oChoice=document.getElementsByClassName("choice");
+        var oBtn=document.getElementsByClassName("button");
+        var oTime=document.getElementById("time");
+        var oScore=document.getElementById("score");
+        var i=0;var m=0;var l=0;var p=0;
+        oChoice[0].onclick=function(){
+            oMusic[0].play();oScore.style.opacity=1;oList.style.opacity=0;setInterval(timing,1000);}
+            oChoice[1].onclick=function(){
+            oMusic[1].play();oScore.style.opacity=1;oList.style.opacity=0;setInterval(timing,1000);}
+            oChoice[2].onclick=function(){
+            oMusic[2].play();oScore.style.opacity=1;oList.style.opacity=0;setInterval(timing,1000);}
+        function timing(){
+            if(i>=0&&i<=35){
+                i++;
+                oTime.innerHTML="Time:"+" "+i+" "+"s";
+                var n=Math.floor(Math.random()*7777777);}  
+            if(n%3==0){
+            oBtn[0].style.opacity=1;oBtn[1].style.opacity=0;oBtn[2].style.opacity=0;
+        }else if(n%3==1){
+            oBtn[1].style.opacity=1;oBtn[0].style.opacity=0;oBtn[2].style.opacity=0;
+        }else{
+            oBtn[2].style.opacity=1;oBtn[0].style.opacity=0;oBtn[1].style.opacity=0;}
+            if(i==35){
+                if(confirm("Game Over!")){
+                window.location.href=("https://renzhaoqi.github.io/Mikrokosmos/Permission To Dance.html");}   }}
+            setInterval(scoring,300);
+            function scoring(){
+                oBtn[0].onclick=function(){
+                    oImg[0].style.opacity=0;oImg[1].style.opacity=1;oImg[2].style.opacity=0;oImg[3].style.opacity=0;
+                    if(oBtn[0].style.opacity==1){
+                    m++;}else if(oBtn[0].style.opacity==0){
+                        m--;}}
+                oBtn[1].onclick=function(){
+                    oImg[0].style.opacity=0;oImg[1].style.opacity=0;oImg[2].style.opacity=1;oImg[3].style.opacity=0;
+                    if(oBtn[1].style.opacity==1){
+                    l++;}else if(oBtn[1].style.opacity==0){
+                        l--;}}
+                oBtn[2].onclick=function(){
+                    oImg[0].style.opacity=0;oImg[1].style.opacity=0;oImg[2].style.opacity=0;oImg[3].style.opacity=1;
+                    if(oBtn[2].style.opacity==1){
+                    p++;}else if(oBtn[2].style.opacity==0){
+                        p--;}}        
+            var q=m+l+p;
+        oScore.innerHTML="Score: "+q+" points";
+        if(q>=15){oVideo.play();}
+        if(q>=27){if(confirm("Congratulation!\nYou acquire Permission to Dance!")){
+                window.location.href=("https://renzhaoqi.github.io/Mikrokosmos/Permission To Dance.html")} }}
+        
+    </script>
+</body>
+</html>
